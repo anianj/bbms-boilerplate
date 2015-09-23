@@ -1,0 +1,36 @@
+{
+  "name": "bbms-boilerplate",
+  "version": "1.0.0",
+  "description": "This is a boilerplate project for Backbone-Marionette, SASS, Broswerify based project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anianj/bbms-boilerplate.git"
+  },
+  "keywords": [
+    "Backbone",
+    "Marionette",
+    "Javascript",
+    "Web"
+  ],
+  "author": "anianj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anianj/bbms-boilerplate/issues"
+  },
+  "homepage": "https://github.com/anianj/bbms-boilerplate#readme",
+  "devDependencies": {
+    "browser-sync": "^2.9.6",
+    "browserify": "^11.1.0",
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
+    "node-sass": "^3.3.3",
+    "scssify": "^0.3.5",
+    "stringify": "^3.1.0"
+  }
+}
