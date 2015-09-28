@@ -22,15 +22,23 @@
     "url": "https://github.com/anianj/bbms-boilerplate/issues"
   },
   "homepage": "https://github.com/anianj/bbms-boilerplate#readme",
+  "sassify": {
+    "includePaths": ["./node_modules/compass-mixins/lib"]
+  },
   "devDependencies": {
     "browser-sync": "^2.9.6",
     "browserify": "^11.1.0",
     "gulp": "^3.9.0",
     "gulp-jade": "^1.1.0",
+    "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.0.4",
     "gulp-sourcemaps": "^1.5.2",
     "node-sass": "^3.3.3",
-    "scssify": "^0.3.5",
-    "stringify": "^3.1.0"
+    "sassify": "^0.9.1",
+    "stringify": "^3.1.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "compass-mixins": "^0.12.7"
   }
 }

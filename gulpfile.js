@@ -7,12 +7,16 @@ var gulp        = require('gulp'),
     jade        = require('gulp-jade'),
     sass        = require('gulp-sass'),
     sourcemaps  = require('gulp-sourcemaps'),
+    source = require('vinyl-source-stream'),
+    plumber = require('gulp-plumber'),
+    sassify = require('sassify'),
     browserSync = require('browser-sync').create();
 
 
 
 gulp.task("jade", function(){
     return gulp.src(['./src/page/*.jade'])
+        .pipe(plumber())
         .pipe(jade({pretty: true}))
         .pipe(gulp.dest('./build/'));
 });
@@ -31,7 +35,9 @@ gulp.task("image", function(){
 
 gulp.task("style", function(){
     return gulp.src(['./src/assets/style/default.sass'])
+        .pipe(plumber())
         .pipe(sourcemaps.init())
+        .pipe(sass({"includePaths":"./node_modules/compass-mixins/lib"}))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./build/assets/style/'));
 });
@@ -44,6 +50,33 @@ gulp.task("bundle",function(){
     ],{
        debug:true
     })
+    .transform(sassify, {
+        'auto-inject': true, // Inject css directly in the code
+        base64Encode: true, // Use base64 to inject css
+        sourceMap: true // Add source map to the code
+    })
+    .bundle()
+    .pipe(source('index.js'))
+    .pipe(gulp.dest('./build/bundle/'));
 
 });
 
+
+gulp.task("watch", function(){
+
+    browserSync.init({
+        files: "./build/**",
+        reloadDelay: 3000,
+        server: {
+            baseDir: "./build",
+            directory: true
+        }
+    });
+
+    gulp.watch('./src/module/**/**', ['bundle']);
+    gulp.watch('./src/assets/style/**/*.sass', ['style']);
+    gulp.watch('./src/page/**/*.jade', ['jade']);
+    gulp.watch('./src/assets/img/**', ['image']);
+    gulp.watch('./src/assets/lib/**', ['lib']);
+
+});
