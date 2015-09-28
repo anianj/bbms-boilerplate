@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/anianj/bbms-boilerplate#readme",
   "sassify": {
-    "includePaths": ["./node_modules/compass-mixins/lib"]
+    "includePaths": [
+      "./node_modules/compass-mixins/lib"
+    ]
   },
   "devDependencies": {
     "browser-sync": "^2.9.6",
@@ -39,6 +41,9 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "compass-mixins": "^0.12.7"
+    "backbone": "git+https://github.com/LPCD-FE/backbone.git#master",
+    "backbone.marionette": "git+https://github.com/LPCD-FE/backbone.marionette.git#master",
+    "compass-mixins": "^0.12.7",
+    "underscore": "^1.8.3"
   }
 }
